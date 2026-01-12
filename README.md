@@ -92,7 +92,7 @@ Interact with the chat using these built-in commands:
 This project was a joint effort where both developers contributed to all aspects of the application, including the core logic, security, and the AWT interface:
 
 *   **<a href="https://github.com/L0rest">L0rest</a>** 
-*   Me
+*   **<a href="https://github.com/SteelPotathor">SteelPotathor</a>** 
 
 ---
 <p align="center">
