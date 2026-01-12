@@ -14,6 +14,9 @@
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
+<!-- TABLE OF CONTENTS -->
+<h2 id="table-of-contents"> :book: Table of Contents </h2>
+
 <details open="open">
   <summary>Table of Contents</summary>
   <ol>
