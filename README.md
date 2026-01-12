@@ -49,12 +49,52 @@ MultiChat Crypted is a robust Java-based messaging system designed to explore **
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
-<h2 id="install"> :package: Getting Started</h2>
+<h2 id="install"> 🚀 Getting Started</h2>
 
-### Prerequisites
-* Java JDK 8 or higher installed.
+To launch the MultiChat application in your local environment, follow these steps:
 
-### Installation & Launch
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/SteelPotathor/MultiChat-Crypted.git
+1.  **Start the Server**: Run the `ChatServer.java` class first to listen for connections.
+2.  **Launch Clients**: Start multiple instances of `ChatGUI.java`. Each instance represents a unique user in the chat room.
+
+> [!TIP]
+> Make sure your firewall allows local socket connections on the port specified in the source code.
+
+![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
+
+<h2 id="usage"> 📜 Commands & Usage</h2>
+
+Interact with the chat using these built-in commands:
+
+| Command | Description |
+| :--- | :--- |
+| `/nick <name>` | Change your current nickname to a new one. |
+| `/mp <name> <message>` | Send a private, encrypted message to a specific user. |
+| `/bye` | Safely disconnect and close the application. |
+
+![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
+
+<h2 id="architecture"> ⚙️ Architecture Details</h2>
+
+### 🏗️ `ChatServer.java`
+*   **Connection Manager**: Listens for and accepts incoming client connections.
+*   **Active Directory**: Maintains a dynamic list of all connected clients.
+*   **Traffic Controller**: Handles broadcasting (all members) and private routing (MP).
+
+### 🎨 `ChatGUI.java`
+*   **User UI**: A visual wrapper developed to make the experience intuitive.
+*   **Input Handler**: Processes text input and translates it into protocol commands.
+*   **Live Feed**: Displays the real-time encrypted/decrypted conversation history.
+
+![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
+
+<h2 id="acknowledgements"> 🤝 Acknowledgements</h2>
+
+This project was a collaborative effort:
+
+*   **<a href="https://github.com/Thorgrimmneth">Thorgrimm</a>** - Developer of the Visual Interface (GUI) and UI logic.
+*   **Core Developer** - (You) Logic, Thread management, and Security implementation.
+
+---
+<p align="center">
+  <i>Educational Project - Designed for Local Environment Testing.</i>
+</p>
