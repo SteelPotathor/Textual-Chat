@@ -75,15 +75,23 @@ Interact with the chat using these built-in commands:
 
 <h2 id="architecture"> ⚙️ Architecture Details</h2>
 
-### 🏗️ `ChatServer.java`
-*   **Connection Manager**: Listens for and accepts incoming client connections.
-*   **Active Directory**: Maintains a dynamic list of all connected clients.
-*   **Traffic Controller**: Handles broadcasting (all members) and private routing (MP).
+The application follows a Robust Client-Server model with specific security handshake phases:
 
-### 🎨 `ChatGUI.java`
-*   **User UI**: A visual wrapper (AWT) developed to make the experience intuitive.
-*   **Input Handler**: Processes text input and translates it into protocol commands.
-*   **Live Feed**: Displays the real-time encrypted/decrypted conversation history.
+### 🛡️ Security Handshake Phase
+1.  **Public Key Exchange**: Upon connection, the Client generates an **RSA KeyPair** and sends the **Public Key** to the Server.
+2.  **Session Key Generation**: The Server generates a unique **AES Session Key**.
+3.  **Encrypted Key Delivery**: The Server encrypts the AES key using the Client's RSA Public Key and sends it back.
+4.  **Secure Tunnel**: All subsequent messages are encrypted/decrypted using that shared AES key.
+
+### 🏗️ Server Side (`Server.java`)
+*   **ConnectionHandler**: An inner class implementing `Runnable`, dedicated to managing each client's input/output streams.
+*   **Broadcast Engine**: Logic to distribute messages to all connected users or target specific users for private messages (`/mp`).
+*   **Concurrency**: Uses `Executors.newCachedThreadPool()` to handle scaling client numbers efficiently.
+
+### 🎨 Client Side (`Client.java` & `ChatGUI.java`)
+*   **Dual-Threaded Client**: One thread manages the **InputHandler** (outgoing messages) while the primary thread listens for incoming encrypted data from the server.
+*   **UI Synchronization**: Uses `SwingUtilities.invokeLater` to ensure the AWT/Swing interface updates safely across threads.
+*   **Protocol Handler**: Translates raw encrypted byte arrays from the socket back into readable strings.
 
 ![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/rainbow.png)
 
