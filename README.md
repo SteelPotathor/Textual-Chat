@@ -81,7 +81,7 @@ Interact with the chat using these built-in commands:
 *   **Traffic Controller**: Handles broadcasting (all members) and private routing (MP).
 
 ### 🎨 `ChatGUI.java`
-*   **User UI**: A visual wrapper developed to make the experience intuitive.
+*   **User UI**: A visual wrapper (AWT) developed to make the experience intuitive.
 *   **Input Handler**: Processes text input and translates it into protocol commands.
 *   **Live Feed**: Displays the real-time encrypted/decrypted conversation history.
 
@@ -89,10 +89,10 @@ Interact with the chat using these built-in commands:
 
 <h2 id="acknowledgements"> 🤝 Acknowledgements</h2>
 
-This project was a collaborative effort:
+This project was a joint effort where both developers contributed to all aspects of the application, including the core logic, security, and the AWT interface:
 
-*   **<a href="https://github.com/Thorgrimmneth">Thorgrimm</a>** - Developer of the Visual Interface (GUI) and UI logic.
-*   **Core Developer** - (You) Logic, Thread management, and Security implementation.
+*   **<a href="https://github.com/L0rest">L0rest</a>** 
+*   Me
 
 ---
 <p align="center">
